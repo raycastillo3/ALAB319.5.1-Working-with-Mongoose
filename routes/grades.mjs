@@ -1,6 +1,7 @@
 import express from "express";
 import db from "../db/conn.mjs";
 import { ObjectId } from "mongodb";
+import Grade from "../models/Grades";
 
 const router = express.Router();
 
@@ -28,6 +29,8 @@ router.get("/:id", async (req, res) => {
   if (!result) res.send("Not found").status(404);
   else res.send(result).status(200);
 });
+//Get single entry refactored:
+
 
 // Add a score to a grade entry
 router.patch("/:id/add", async (req, res) => {
@@ -74,7 +77,7 @@ router.get("/student/:id", async (req, res) => {
 router.get("/learner/:id", async (req, res) => {
   let collection = await db.collection("grades");
   let query = { learner_id: Number(req.params.id) };
-  
+
   // Check for class_id parameter
   if (req.query.class) query.class_id = Number(req.query.class);
 
