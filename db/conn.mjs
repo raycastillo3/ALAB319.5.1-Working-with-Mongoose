@@ -4,7 +4,7 @@ dotenv.config();
 
 async function connectDB() {
   try {
-    await mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true }, { useUnifiedTopology: true });
+    await mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true , useUnifiedTopology: true });
     console.log('connection success: ');
   } catch (error) {
     console.log('connection error', error);
