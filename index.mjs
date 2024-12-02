@@ -1,6 +1,7 @@
 import express from "express";
 import connectDB from "./db/conn.mjs";
 
+
 const PORT = 5050;
 const app = express();
 
@@ -11,6 +12,7 @@ import grades from "./routes/grades.mjs";
 app.use(express.json());
 
 //mongoose:
+// mongoose.connect(process.env.ATLAS_URI)
 connectDB();
 
 
